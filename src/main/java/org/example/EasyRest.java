@@ -10,7 +10,7 @@ public class EasyRest
 
     @PostMapping("/easy")
     //No constrain declare
-    public Integer easy(@RequestBody(required = false) Horse horse, @RequestParam(required = false) Integer paramA) {
+    public Integer easy(@RequestBody Horse horse, @RequestParam Integer paramA) {
         return paramA;
     }
 }

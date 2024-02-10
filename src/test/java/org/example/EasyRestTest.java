@@ -56,7 +56,7 @@ public class EasyRestTest {
                 .andReturn().getResponse();
         String contentAsString = response.getContentAsString();
         assertEquals(400, response.getStatus());
-        assertEquals("{\"message\":\"I am stupid\"}", contentAsString);
+        assertEquals("{\"message\":\"Required request parameter 'paramA' for method parameter type Integer is not present\"}", contentAsString);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class EasyRestTest {
                 .andReturn().getResponse();
         String contentAsString = response.getContentAsString();
         assertEquals(400, response.getStatus());
-        assertEquals("{\"message\":\"WHat is it\"}", contentAsString);
+        assertEquals("{\"message\":\"Required request body is missing: public java.lang.Integer org.example.EasyRest.easy(org.example.Horse,java.lang.Integer)\"}", contentAsString);
     }
 
 }
