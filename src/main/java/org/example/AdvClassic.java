@@ -3,10 +3,12 @@ package org.example;
 
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import org.springframework.web.context.request.WebRequest;
@@ -24,10 +26,11 @@ public class AdvClassic extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({ConstraintViolationException.class})
-    protected ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex) {
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    protected String handleConstraintViolationException(ConstraintViolationException ex) {
         String collect = ex.getConstraintViolations().stream()
                 .map(t -> t.getMessage()).collect(Collectors.joining(";"));
-        return ResponseEntity.badRequest().body("{\"message\":\""+collect+"\"}");
+        return "{\"message\":\""+collect+"\"}";
     }
 
 }
