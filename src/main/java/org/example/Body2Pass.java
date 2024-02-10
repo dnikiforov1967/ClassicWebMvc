@@ -7,6 +7,5 @@ import lombok.Data;
 @Data
 public class Body2Pass {
 
-    @NotBlank
     private String name;
 }
