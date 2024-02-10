@@ -1,12 +1,11 @@
 package org.example;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 
 @Data
-public class Horse {
+public class Body2Pass {
 
     @NotBlank
     private String name;

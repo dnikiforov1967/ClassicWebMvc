@@ -7,10 +7,13 @@ import org.springframework.web.bind.annotation.*;
 public class EasyRest
         implements IEasyRest
 {
-
     @PostMapping("/easy")
-    //No constrain declare
-    public Integer easy(@RequestBody Horse horse, @RequestParam Integer paramA) {
-        return paramA;
+    public String postExample(@RequestBody Body2Pass body) {
+        return body.getName();
+    }
+
+    @GetMapping("/easy")
+    public Integer getExample(@RequestParam Integer param) {
+        return param;
     }
 }
