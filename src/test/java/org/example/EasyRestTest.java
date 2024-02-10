@@ -73,4 +73,16 @@ public class EasyRestTest {
         assertEquals("{\"message\":\"Minimum 2\"}", contentAsString);
     }
 
+    @Test
+    void testNoBody() throws Exception {
+        MockHttpServletResponse response = mockMvc.perform(post("/easy")
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .queryParam("paramA", "2")
+                )
+                .andReturn().getResponse();
+        String contentAsString = response.getContentAsString();
+        assertEquals(400, response.getStatus());
+        assertEquals("{\"message\":\"WHat is it\"}", contentAsString);
+    }
+
 }
