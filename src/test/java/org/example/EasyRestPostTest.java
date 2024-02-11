@@ -23,11 +23,11 @@ public class EasyRestPostTest {
         MvcResult mvcResult = mockMvc.perform(
                 post("/easy")
                 .content("""
-                       {"name":"", "id":-1}""")
+                       {"name":"", "id":-2}""")
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn();
         assertEquals(400, mvcResult.getResponse().getStatus());
-        assertEquals("", mvcResult.getResponse().getContentAsString());
+        assertEquals("X", mvcResult.getResponse().getContentAsString());
     }
 
 }
