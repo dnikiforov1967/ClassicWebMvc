@@ -19,10 +19,11 @@ public class EasyRestGetTest {
     void easyRestGetTest() throws Exception {
         MvcResult mvcResult = mockMvc.perform(
                 get("/easy")
-                        .queryParam("param", "3")
+                        //.queryParam("param", "11")
         ).andReturn();
-        assertEquals(200, mvcResult.getResponse().getStatus());
-        assertEquals("3", mvcResult.getResponse().getContentAsString());
+        assertEquals(400, mvcResult.getResponse().getStatus());
+        assertEquals("""
+                {"message":"Parameter 'param' must be there","errorCode":-101}""", mvcResult.getResponse().getContentAsString());
     }
 
 }

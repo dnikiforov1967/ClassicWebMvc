@@ -1,6 +1,5 @@
 package org.example;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 
