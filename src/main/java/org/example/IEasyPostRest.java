@@ -1,9 +1,8 @@
 package org.example;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.Valid;
 
 public interface IEasyPostRest {
 
-    String postExample(Body2Pass body);
+    String postExample(@Valid Body2Pass body);
 }

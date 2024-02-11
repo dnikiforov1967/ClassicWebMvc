@@ -22,12 +22,12 @@ public class EasyRestPostTest {
     void easyRestGetTest() throws Exception {
         MvcResult mvcResult = mockMvc.perform(
                 post("/easy")
-                //.content("""
-                //        {"name":"Alice"}""")
+                .content("""
+                       {"name":""}""")
                         .contentType(MediaType.APPLICATION_JSON)
         ).andReturn();
         assertEquals(400, mvcResult.getResponse().getStatus());
-        assertEquals("Alice", mvcResult.getResponse().getContentAsString());
+        assertEquals("", mvcResult.getResponse().getContentAsString());
     }
 
 }
